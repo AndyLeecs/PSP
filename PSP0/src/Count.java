@@ -32,14 +32,16 @@ class Count {
 				// 如果是方法行开始提示，方法行加一
 				if (line.trim().startsWith("// method")) {
 					method_count++;
+					
 				}
 				// 如果是类行开始提示，打印类名称
 				if (line.trim().startsWith("// class")) {
 					System.out.println(line.trim().replaceAll(" ", "").replaceAll("//class", ""));
 				}
 				// 如果不是空行和注释行，总行数加一
-				if (line.trim() != null && (!line.startsWith("/") && (!line.startsWith("*")))) {
+				if (line.trim() != null && line.length() > 0 && (!line.startsWith("/") && (!line.startsWith("*")))) {
 					total_lines++;
+//					System.out.println(line);
 				}
 
 				// 初始化方法名和方法内行数的数组
@@ -118,4 +120,3 @@ class Count {
 
 	}
 }
-// class end
