@@ -16,6 +16,23 @@ public static void main(String[]args){
 	count = new Count();
 	count.count_all(path);
 	count.count_method(path);
-
+//
+//	System.out.println();
+//	path = "src/Correlation.java";
+//	count = new Count();
+//	count.count_all(path);
+//	count.count_method(path);
+////	
+//	System.out.println();
+//	String path1 = "src/3_test1.txt";
+//	String path2 = "src/3_test2.txt";
+//	String path3 = "src/3_test3.txt";
+//	String path4 = "src/3_test4.txt";
+//	Correlation c = new Correlation();
+//	c.go(path1, path3);
+//	c.go(path1, path4);
+//	c.go(path2, path3);
+//	c.go(path2, path4);
+	
 }
 }
