@@ -12,7 +12,7 @@ public static void main(String[]args){
 	count.count_method(path);
 	
 	System.out.println();
-	path = "src/Count.java";
+	path = "src/Range.java";
 	count = new Count();
 	count.count_all(path);
 	count.count_method(path);
@@ -22,7 +22,7 @@ public static void main(String[]args){
 //	count = new Count();
 //	count.count_all(path);
 //	count.count_method(path);
-////	
+//////	
 //	System.out.println();
 //	String path1 = "src/3_test1.txt";
 //	String path2 = "src/3_test2.txt";
@@ -33,6 +33,20 @@ public static void main(String[]args){
 //	c.go(path1, path4);
 //	c.go(path2, path3);
 //	c.go(path2, path4);
+	
+//	Range range = new Range();
+//	String path1_1 = "src/4_test1_1.txt";
+//	String path1_2 = "src/4_test1_2.txt";
+//	String path2_1 = "src/4_test2_1.txt";
+//	String path2_2 = "src/4_test2_2.txt";
+//	range.go(path1_1, path1_2, 13);
+//	range.go(path2_1, path2_2, 16);
+
+	Integration i = new Integration();
+	i.go(1.1, 9);
+	i.go(1.1812,10);
+	i.go(2.750, 30);
+	
 	
 }
 }
