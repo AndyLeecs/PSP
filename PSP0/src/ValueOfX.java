@@ -2,12 +2,76 @@
 
 /**     
 * @author 李安迪
-* @date 2017年7月15日
-* @description calculate numerical integration
+* @date 2017年7月16日
+* @description Find the value of x for which integrating the t function from 0 to x gives a result of p.
 */
-// class Integration
-public class Integration {
+public class ValueOfX {
+	final double e = 0.0000001;//permitted error range
+	// method guess
+	/**
+	 * Find the value of x for which integrating the t function from 0 to x gives a result of p.
+	 * @param p integration
+	 * @param dof degrees of freedom
+	 */
+	public void guess(double p , double dof){
+		double x = 1.0;
+		double d = 0.5;
+		if (check(p,x,dof) == 0)
+			return;
+		else {
+			
+			if(check(p,x,dof) == -1)
+			x = x + d;
+			else 
+				x = x - d;
+		}
+
+		int former = check(p,x,dof);
+		
+		while(true){
+
+		if (check(p,x,dof) == 0)
+			return;
+		else {
+			if(former != check(p,x,dof)){
+				former = check(p,x,dof);
+			d = d/2;
+			
+			}
+			if(check(p,x,dof) == -1)
+			x = x + d;
+			else 
+				x = x - d;
+			}
+
+		}
+			}
+		
+		
+		
 	
+	// end
+	// method check
+	/**
+	 * check if x is valid, too big or too small
+	 * @param p integration
+	 * @param x guessed variable to form the integration
+	 * @param dof degrees of freedom
+	 * @return 0 if x is valid, 1 if x is too big, -1 if x is too small
+	 */
+	public int check(double p, double x, double dof){
+		if(go(x,dof) - p <= e && go(x,dof) - p >= -e){
+			System.out.println(x);
+			return 0;
+		}
+		else if(go(x,dof) - p > e)
+			return 1;
+		else 
+			return -1;
+		
+
+	}
+	// end
 	// method go
 	/**
 	 * calculate the numerical integration
@@ -15,13 +79,15 @@ public class Integration {
 	 * @param dof degrees of freedom
 	 * @return numerical integration
 	 */
-	public void go(double x, double dof){
+	public double go(double x, double dof){
+		if(x == 0)
+			return 0;
 		double e = 0.0000001;
 		double num_seg = 100000;
 		while(((calp(x,dof,num_seg)-calp(x,dof,2*num_seg))>e) || ((calp(x,dof,num_seg)-calp(x,dof,2*num_seg))<-e)){
 			num_seg = 2 * num_seg;
 		}
-		System.out.println( calp(x,dof,2*num_seg)+"");
+		return calp(x,dof,2*num_seg);
 	}
 	// end
 	// method gam
